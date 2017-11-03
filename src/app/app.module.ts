@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component'
 import { AuthService } from './service/auth.service';
+import { CarroComponent } from './carro/carro.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthService } from './service/auth.service';
     HomeComponent,
     PageNotFoundComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    CarroComponent
   ],
   imports: [
     BrowserModule,
