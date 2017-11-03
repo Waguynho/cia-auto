@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  ambiente: 'PROD',
+  urlBase: 'http://node1.wscompany.com.br/api'
 };

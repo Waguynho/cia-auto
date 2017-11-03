@@ -1,0 +1,13 @@
+<div class="bg-inverse" >
+  <div class="form-inline my-2 my-lg-0"  *ngIf="isLogged">
+   <span class="text-white"> {{user.nome}} &nbsp; &nbsp; </span>
+    <button class="btn btn-success" (click)="Deslogar()">Sair</button>
+  </div>
+  <div *ngIf="!isLogged">
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Login" [(ngModel)]="login" name="login" required>>
+      <input class="form-control mr-sm-2" type="password" placeholder="Senha" [(ngModel)]="senha" name="senha" required>>
+      <button class="btn btn-default my-2 my-sm-0" type="submit" (click)="Logar()">Login</button>
+    </form>
+  </div>
+</div>
