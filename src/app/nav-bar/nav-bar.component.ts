@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
 })
 export class NavBarComponent implements OnInit {
 
-  private isUserLogged: boolean = false;
+  isUserLogged: boolean = false;
 
   constructor() { }
 
