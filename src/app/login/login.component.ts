@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 
@@ -13,16 +13,21 @@ export class LoginComponent implements OnInit {
 
   login: string;
   senha: string;
-  isLogged: boolean;
+  @Output('update')
+  isLogged: EventEmitter<boolean> = new EventEmitter();
   user: any;
 
-  constructor(private router: Router, private autSvc: AuthService) { }
+  constructor(private router: Router, private autSvc: AuthService) {
+
+  }
 
   ngOnInit() {
 
+    this.isLogged.emit(this.autSvc.IsLogged());
+
     this.user = this.autSvc.GetUser();
 
-    this.isLogged = this.autSvc.IsLogged();
+
   }
 
 
@@ -35,7 +40,7 @@ export class LoginComponent implements OnInit {
 
         localStorage.setItem('user', JSON.stringify(this.user));
 
-        this.isLogged = this.autSvc.IsLogged();
+        this.isLogged.emit(this.autSvc.IsLogged());
 
         this.router.navigate(['/dashboard']);
       })
@@ -50,8 +55,9 @@ export class LoginComponent implements OnInit {
   }
 
   Deslogar(): void {
-    this.isLogged = false;
     this.autSvc.Logout();
+    this.isLogged.emit(this.autSvc.IsLogged());
+    this.user = null;
     this.router.navigate(['/']);
   }
 }

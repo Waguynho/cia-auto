@@ -1,13 +1,15 @@
-<div class="bg-inverse" >
-  <div class="form-inline my-2 my-lg-0"  *ngIf="isLogged">
-   <span class="text-white"> {{user.nome}} &nbsp; &nbsp; </span>
-    <button class="btn btn-primary" (click)="Deslogar()">Sair</button>
+<div class="bg-inverse">
+  <div *ngIf="user != null">
+    <div class="form-inline my-2 my-lg-0" *ngIf="isLogged">
+      <span class="text-white"> {{user.nome}} &nbsp; &nbsp; </span>
+      <button class="btn btn-primary" (click)="Deslogar()">Sair</button>
+    </div>
   </div>
-  <div *ngIf="!isLogged">
+  <div *ngIf="user == null">
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Login" [(ngModel)]="login" name="login" required>>
-      <input class="form-control mr-sm-2"  type="password" placeholder="Senha" [(ngModel)]="senha" name="senha" required   />
-      <button class="btn btn-outline-primary my-2 my-sm-0"  type="submit" (click)="Logar()"   >Login</button>
+      <input class="form-control mr-sm-2" type="password" placeholder="Senha" [(ngModel)]="senha" name="senha" required />
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" (click)="Logar()">Login</button>
     </form>
   </div>
 </div>

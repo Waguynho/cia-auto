@@ -9,12 +9,19 @@ import { environment } from '../../environments/environment';
 })
 export class NavBarComponent implements OnInit {
 
-
+  private isUserLogged: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
-    console.log("AMBIENTE: " + environment.ambiente);
+    console.log(
+      'AMBIENTE: ' + environment.ambiente);
+  }
+
+  OnLogonLogoff(evento: boolean): void {
+   debugger;
+    this.isUserLogged = evento;
+
   }
 
 
