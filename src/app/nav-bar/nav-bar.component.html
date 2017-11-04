@@ -8,12 +8,18 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home
+        <a class="nav-link" href="#" routerLink="/">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+
+      <li *ngIf="isUserLogged" class="nav-item active">
+        <a class="nav-link" href="#" routerLink="/dashboard">Painel Principal
           <span class="sr-only">(current)</span>
         </a>
       </li>
       <div *ngIf="isUserLogged">
-        <li  class="nav-item dropdown">
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gerenciar</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#" routerLink="/carros">Carros</a>
@@ -26,7 +32,7 @@
       </div>
     </ul>
 
-    <login  (update)="OnLogonLogoff($event)"></login>
+    <login (update)="OnLogonLogoff($event)"></login>
 
 
   </div>

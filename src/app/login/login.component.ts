@@ -14,20 +14,16 @@ export class LoginComponent implements OnInit {
   login: string;
   senha: string;
   @Output('update')
-  isLogged: EventEmitter<boolean> = new EventEmitter();
+  isLogged: EventEmitter<boolean> = new EventEmitter<boolean>();
   user: any;
 
   constructor(private router: Router, private autSvc: AuthService) {
-
+  
   }
 
   ngOnInit() {
-
     this.isLogged.emit(this.autSvc.IsLogged());
-
     this.user = this.autSvc.GetUser();
-
-
   }
 
 

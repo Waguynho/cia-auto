@@ -13,6 +13,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component'
 import { AuthService } from './service/auth.service';
 import { CarroComponent } from './carro/carro.component';
+import { CarroAddComponent } from './carro/carro-add.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CarroComponent } from './carro/carro.component';
     PageNotFoundComponent,
     DashboardComponent,
     LoginComponent,
-    CarroComponent
+    CarroComponent,
+    CarroAddComponent
   ],
   imports: [
     BrowserModule,
