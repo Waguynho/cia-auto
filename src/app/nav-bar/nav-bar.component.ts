@@ -23,7 +23,7 @@ export class NavBarComponent implements OnInit {
 
   OnLogonLogoff(evento: boolean): void {
     this.isUserLogged = evento;
-    debugger;
+    
   }
 
 

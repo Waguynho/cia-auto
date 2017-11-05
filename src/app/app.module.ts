@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component'
 import { AuthService } from './service/auth.service';
 import { CarroComponent } from './carro/carro.component';
 import { CarroAddComponent } from './carro/carro-add.component';
+import { RouteGuard } from './guards/route.guard';
+import {SaveFormGuard} from './guards/save-form.guard';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import { CarroAddComponent } from './carro/carro-add.component';
     HttpModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [AuthService],
+  providers: [AuthService, RouteGuard, SaveFormGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
