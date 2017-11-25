@@ -1,3 +1,4 @@
+import { MessageService } from './service/message.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule} from '@angular/router';
@@ -16,6 +17,7 @@ import { CarroComponent } from './carro/carro.component';
 import { CarroAddComponent } from './carro/carro-add.component';
 import { RouteGuard } from './guards/route.guard';
 import {SaveFormGuard} from './guards/save-form.guard';
+import { MessagesComponent } from './shared/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import {SaveFormGuard} from './guards/save-form.guard';
     DashboardComponent,
     LoginComponent,
     CarroComponent,
-    CarroAddComponent
+    CarroAddComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import {SaveFormGuard} from './guards/save-form.guard';
     HttpModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [AuthService, RouteGuard, SaveFormGuard ],
+  providers: [AuthService, RouteGuard, SaveFormGuard, MessageService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

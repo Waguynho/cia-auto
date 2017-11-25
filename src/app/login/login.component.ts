@@ -1,3 +1,4 @@
+import { MessageService } from './../service/message.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   isLogged: EventEmitter<boolean> = new EventEmitter<boolean>();
   user: any;
 
-  constructor(private router: Router, private autSvc: AuthService) {
+  constructor(private router: Router, private autSvc: AuthService, private messageSvc: MessageService) {
   
   }
 
@@ -41,9 +42,8 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       })
       .catch(erro => {
-
-        console.error(erro);
-
+        
+        this.messageSvc.setMessage(5000, JSON.parse( erro._body).messagem);
         this.router.navigate(['/']);
       });
 
