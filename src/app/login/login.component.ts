@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       })
       .catch(erro => {
         
-        this.messageSvc.setMessage(5000, JSON.parse( erro._body).messagem);
+        this.messageSvc.setMessage(5000, JSON.parse( erro._body).messagem, "danger");
         this.router.navigate(['/']);
       });
 

@@ -35,7 +35,7 @@ export class CarroAddComponent implements OnInit, IsaveForm {
     })
       .catch(erro => {
 
-        this.messageSvc.setMessage(5000, JSON.parse(erro._body).messagem);
+        this.messageSvc.setMessage(5000, JSON.parse(erro._body).messagem, "danger");
         // this.router.navigate(['/']);
       });
   }
@@ -46,7 +46,7 @@ export class CarroAddComponent implements OnInit, IsaveForm {
     this.carro.dono = this.selectedValue;
     console.log(this.carro);
     debugger;
-    this.messageSvc.setMessage(5000, "Salvo com sucesso!");
+    this.messageSvc.setMessage(5000, "Salvo com sucesso!","success");
     //this.router.navigate(['/carros']);
   }
 

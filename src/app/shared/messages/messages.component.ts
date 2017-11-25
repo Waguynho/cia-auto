@@ -12,6 +12,7 @@ export class MessagesComponent implements OnInit {
   subscription: any;
   show: boolean = false;
   message: string;
+  level: string;
   constructor(private messageSvc: MessageService) { }
 
   ngOnInit() {
@@ -27,6 +28,7 @@ export class MessagesComponent implements OnInit {
     console.log('millisecondes: ', obj.timer);
     this.show = true;
     this.message = obj.msg;
+    this.level = obj.level;
     debugger;
     setTimeout(() => {
       this.show = false;

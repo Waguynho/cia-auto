@@ -8,9 +8,9 @@ export class MessageService {
 
   constructor() { }
 
-  public setMessage(milisseconds: number, msg: string): void {
+  public setMessage(milisseconds: number, msg: string, level: string): void {
 
-    this.timer.emit({timer:milisseconds, msg: msg});
+    this.timer.emit({timer:milisseconds, msg: msg, level: level});
 
     
   }
