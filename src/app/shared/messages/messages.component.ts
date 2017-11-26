@@ -29,7 +29,7 @@ export class MessagesComponent implements OnInit {
     this.show = true;
     this.message = obj.msg;
     this.level = obj.level;
-    debugger;
+    
     setTimeout(() => {
       this.show = false;
       this.message = '';

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpModule, Http } from '@angular/http';
+import { HttpModule, Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/toPromise';
 import { environment } from '../../environments/environment';
@@ -16,9 +16,9 @@ export class AuthService {
     }).toPromise();
   }
 
-  IsLogged():boolean {
+  IsLogged(): boolean {
 
-    if(localStorage.getItem('user')){
+    if (localStorage.getItem('user')) {
       return true;
     }
 
@@ -26,14 +26,27 @@ export class AuthService {
 
   }
 
-  Logout(): void{
+  Logout(): void {
 
-    localStorage.removeItem('user');
+    localStorage.clear();
   }
 
-  GetUser(){
+  GetUser() {
     let user = localStorage.getItem('user');
-    return JSON.parse( user);
+    return JSON.parse(user);
+  }
+
+  GetHeaders(): RequestOptions {
+
+    let headers = new Headers();
+
+    let token = localStorage.getItem('token');
+
+    headers.append('token', token);
+
+    let options = new RequestOptions({ headers: headers });
+
+    return options;
   }
 
 

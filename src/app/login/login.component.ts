@@ -37,6 +37,10 @@ export class LoginComponent implements OnInit {
 
         localStorage.setItem('user', JSON.stringify(this.user));
 
+        let token = JSON.stringify(response.json().token).replace("\"","").replace("\"","");
+
+        localStorage.setItem('token',token);
+
         this.isLogged.emit(this.autSvc.IsLogged());
 
         this.router.navigate(['/dashboard']);

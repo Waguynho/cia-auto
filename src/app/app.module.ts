@@ -18,6 +18,7 @@ import { CarroAddComponent } from './carro/carro-add.component';
 import { RouteGuard } from './guards/route.guard';
 import {SaveFormGuard} from './guards/save-form.guard';
 import { MessagesComponent } from './shared/messages/messages.component';
+import { CarroListComponent } from './carro/carro-list/carro-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MessagesComponent } from './shared/messages/messages.component';
     LoginComponent,
     CarroComponent,
     CarroAddComponent,
-    MessagesComponent
+    MessagesComponent,
+    CarroListComponent
   ],
   imports: [
     BrowserModule,

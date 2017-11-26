@@ -5,12 +5,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IsaveForm } from '../model/save-form';
 import { FormsModule } from '@angular/forms';
-
+import { CarroService } from './../service/carro.service';
 import { PersonService } from './../service/person.service';
 @Component({
   selector: 'carro-add',
   templateUrl: './carro-add.component.html',
-  providers: [PersonService]
+  providers: [PersonService, CarroService]
 })
 export class CarroAddComponent implements OnInit, IsaveForm {
 
@@ -19,7 +19,7 @@ export class CarroAddComponent implements OnInit, IsaveForm {
   users: Person[];
 
   selectedValue: any;
-  constructor( private router: Router, private personSvc: PersonService, private messageSvc: MessageService) { }
+  constructor(private router: Router, private personSvc: PersonService, private carSvc: CarroService, private messageSvc: MessageService) { }
 
   ngOnInit() {
 
@@ -31,7 +31,7 @@ export class CarroAddComponent implements OnInit, IsaveForm {
 
       console.log(this.users);
 
-      // this.router.navigate(['/dashboard']);
+       
     })
       .catch(erro => {
 
@@ -45,8 +45,20 @@ export class CarroAddComponent implements OnInit, IsaveForm {
 
     this.carro.dono = this.selectedValue;
     console.log(this.carro);
-    debugger;
-    this.messageSvc.setMessage(5000, "Salvo com sucesso!","success");
+
+    this.carSvc.CreateCar(this.carro).subscribe(
+      result => {
+        console.log(result);        
+        this.messageSvc.setMessage(5000, "Salvo com sucesso!", "success");
+        this.router.navigate(['/carros-list']);
+      },
+      erro => {
+        console.log(erro);
+        debugger;
+        this.messageSvc.setMessage(5000, JSON.parse(erro._body).message, "danger");
+      })
+      ;
+
     //this.router.navigate(['/carros']);
   }
 
