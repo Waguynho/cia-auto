@@ -1,0 +1,47 @@
+<nav >
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#">Anterior</a>
+    </li>
+    <li *ngFor="let c of carros;let i=index" class="page-item">
+      <a class="page-link" href="#">{{i + 1}}</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">Próxima</a>
+    </li>
+  </ul> 
+</nav>
+
+<table class="table table-bordered table-hover col-12">
+  <thead class="table-inverse bg-primary">
+    <tr>
+      <th>#</th>
+      <th>Carro</th>
+      <th>Marca</th>
+      <th>Proprietário</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let c of carros;let i=index">
+    <tr>
+      <th scope="row">{{i + 1}}</th>
+      <td>{{c.nome}} </td>
+      <td>{{c.marca}} </td>
+      <td>{{c.dono.nome}} </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<nav >
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#">Anterior</a>
+    </li>
+    <li *ngFor="let c of carros;let i=index" class="page-item">
+      <a class="page-link" href="#">{{i + 1}}</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">Próxima</a>
+    </li>
+  </ul>
+</nav>
