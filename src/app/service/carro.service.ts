@@ -19,11 +19,15 @@ export class CarroService {
     return this.http.post(environment.urlBase + '/carros', newCar, options).map(response => response.json());
   }
 
-  GetCars(): Observable<any> {
+  GetCars(start: number): Observable<any> {
 
     let options = this.authSvc.GetHeaders();
 
-    return this.http.get(environment.urlBase + '/carros', options).map(response => response.json());
+    return this.http.get(environment.urlBase + `/carros?start=${start}`, options)
+    .map(response =>  
+      
+       response
+    );
   }
 
 }

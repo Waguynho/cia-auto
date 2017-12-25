@@ -36,7 +36,7 @@ export class AuthService {
     return JSON.parse(user);
   }
 
-  GetHeaders(): RequestOptions {
+  GetHeaders(): any {
 
     let headers = new Headers();
 
@@ -44,8 +44,8 @@ export class AuthService {
 
     headers.append('token', token);
 
-    let options = new RequestOptions({ headers: headers });
-
+    let options = { headers: headers, observe: 'response'  };
+    
     return options;
   }
 
