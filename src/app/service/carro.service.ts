@@ -19,6 +19,17 @@ export class CarroService {
     return this.http.post(environment.urlBase + '/carros', newCar, options).map(response => response.json());
   }
 
+  GetCarById(id: number): Observable<any> {
+
+    let options = this.authSvc.GetHeaders();
+
+    return this.http.get(environment.urlBase + `/carros/${id}`, options)
+    .map(response =>  
+      
+       response
+    );
+  }
+
   GetCars(start: number): Observable<any> {
 
     let options = this.authSvc.GetHeaders();

@@ -1,3 +1,4 @@
+import { CarroEditComponent } from './../carro/carro-edit/carro-edit.component';
 import { CarroListComponent } from './../carro/carro-list/carro-list.component';
 import { Routes } from '@angular/router';
 
@@ -15,5 +16,6 @@ export const appRoutes: Routes = [
   { path: 'carros', component: CarroComponent, canActivate: [RouteGuard] },
   { path: 'carros-add', component: CarroAddComponent, canActivate: [RouteGuard], canDeactivate: [SaveFormGuard] },
   { path: 'carros-list', component: CarroListComponent, canActivate: [RouteGuard] },
+  { path: 'carros/:id', component: CarroEditComponent },
   { path: '**', component: PageNotFoundComponent }
 ];

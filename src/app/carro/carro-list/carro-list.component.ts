@@ -44,8 +44,7 @@ export class CarroListComponent implements OnInit {
         console.log(erro);
         debugger;
         this.messageSvc.setMessage(5000, JSON.parse(erro._body).message, "danger");
-      })
-      ;
+      });
   }
 
   toPage(page) {

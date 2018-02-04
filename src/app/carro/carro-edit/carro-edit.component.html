@@ -1,0 +1,6 @@
+<div class="jumbotron">
+    <h1 class="text-center">Editar carro {{idCar}}</h1>
+</div>
+<div *ngIf="car != null">
+    <carro-form [TitleFormCar]="titleEdit" [carro]="car">CARREGANDO...</carro-form>
+</div>
