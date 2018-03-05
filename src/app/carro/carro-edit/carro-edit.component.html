@@ -1,6 +1,6 @@
 <div class="jumbotron">
-    <h1 class="text-center">Editar carro {{idCar}}</h1>
+    <h1 class="text-center">Editar carro {{carEdit._id}}</h1>
 </div>
-<div *ngIf="car != null">
-    <carro-form [TitleFormCar]="titleEdit" [carro]="car">CARREGANDO...</carro-form>
+<div *ngIf="carEdit != null">
+    <carro-form [TitleFormCar]="titleEdit" [carro]="carEdit">CARREGANDO...</carro-form>
 </div>

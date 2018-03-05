@@ -1,40 +1,42 @@
 import { Car } from '../../model/car';
 import { Person } from '../../model/person';
 import { MessageService } from '../../service/message.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterContentInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IsaveForm } from '../../model/save-form';
 import { FormsModule } from '@angular/forms';
 import { CarroService } from '../../service/carro.service';
 import { PersonService } from '../../service/person.service';
+
 @Component({
   selector: 'carro-form',
   templateUrl: './carro-form.component.html',
   providers: [PersonService, CarroService]
 })
-export class CarroFormComponent implements OnInit, IsaveForm {
-
+export class CarroFormComponent implements OnInit,  IsaveForm {
 
   @Input()  TitleFormCar: string;  
   isSalvouRegistro: boolean = false;
   @Input()  carro: Car;
   users: Person[];
 
-  selectedPerson: any;
-  constructor(private router: Router, private personSvc: PersonService, private carSvc: CarroService, private messageSvc: MessageService) { }
+  selectedPerson: Person;
+  constructor(private router: Router, private personSvc: PersonService, private carSvc: CarroService, private messageSvc: MessageService) { 
+ 
+  }
 
-  ngOnInit() {
-
+  ngOnInit(){
+              
     this.loadPersonsOptionSet();
 
     if(this.carro == null){
-        this.carro = new Car();
-    }else{
-    
-        this.selectedPerson = this.carro.dono;
-    }    
 
-    
+        this.carro = new Car();
+    }else{    
+      this.selectedPerson = this.carro.dono;
+      console.log('CARRO: ');
+      console.log(this.carro);
+    }   
   }
 
   loadPersonsOptionSet(): void{
@@ -43,8 +45,7 @@ export class CarroFormComponent implements OnInit, IsaveForm {
 
         this.users = response.json() as Person[];
   
-        console.log(this.users);
-  
+        console.log(this.users); 
          
       })
         .catch(erro => {
@@ -85,5 +86,6 @@ export class CarroFormComponent implements OnInit, IsaveForm {
   IsSavouRegistro(): boolean {
     return this.isSalvouRegistro;
   }
+
 
 }

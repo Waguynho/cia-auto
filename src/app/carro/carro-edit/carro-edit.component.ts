@@ -15,7 +15,7 @@ import { CarroService } from '../../service/carro.service';
 })
 export class CarroEditComponent implements OnInit {
   
-  car: Car;
+  carEdit: Car;
   titleEdit: string;
  
   constructor(private router: Router, private route: ActivatedRoute,  private carSvc: CarroService, private messageSvc: MessageService) { }
@@ -35,9 +35,9 @@ export class CarroEditComponent implements OnInit {
         this.carSvc.GetCarById(id).subscribe(
             result => {
               
-              this.car = JSON.parse(result._body);
+              this.carEdit = JSON.parse(result._body);
       
-              console.log('editando carro: ' + this.car.nome);             
+              console.log('editando carro: ' + this.carEdit.nome);             
             },
             erro => {
               console.log(erro);
