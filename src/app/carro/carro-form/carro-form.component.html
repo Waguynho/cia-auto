@@ -33,7 +33,7 @@
                     </label>
                     <br>
                     <select   class="form-control" [(ngModel)]="selectedPerson">                        
-                        <option *ngFor="let u of users"  [ngValue]="u" [selected]=" u.login != carro.dono.login ">{{u.nome}}</option>
+                        <option *ngFor="let u of users"  [ngValue]="u" >{{u.nome}}</option>
                     </select>
                 </div>
     

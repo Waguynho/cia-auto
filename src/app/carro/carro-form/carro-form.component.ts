@@ -33,9 +33,7 @@ export class CarroFormComponent implements OnInit,  IsaveForm {
 
         this.carro = new Car();
     }else{    
-      this.selectedPerson = this.carro.dono;
-      console.log('CARRO: ');
-      console.log(this.carro);
+         
     }   
   }
 
@@ -45,7 +43,10 @@ export class CarroFormComponent implements OnInit,  IsaveForm {
 
         this.users = response.json() as Person[];
   
-        console.log(this.users); 
+        debugger;
+        this.selectedPerson = this.users.find(u => u._id == this.carro.dono._id);
+        console.log('PESSOA: ');
+        console.log(this.selectedPerson);  
          
       })
         .catch(erro => {
